@@ -6,14 +6,15 @@
       <th>body</th>
     </tr>
   </thead>
-  <tbody>
-    <th>リーダブルコード</th>
-    <th>より良いコードを書くためのシンプルで実践的なテクニック	</th>
-  </tbody>
-  <tbody>
-    <th>トラブル知らずのシステム設計</th>
-    <th>システム設計の要点を図解で説明してくれます		</th>
-  </tbody>
+  <% @books.each do |book| %>
+    <tbody>
+      <th><%= book.title %></th>
+      <th><%= book.body %></th>
+      <th><%= link_to 'Show', book_path(book.id) %></th>
+      <th><%= link_to 'Edit', edit_book_path(book.id) %></th>
+      <th><%= link_to 'Destroy', book_path(book.id), method: :delete, "data-confirm" => "本当に削除しますか？" %></th>
+    </tbody>
+  <% end %>
 </table>
 
 <!--newbook-->
